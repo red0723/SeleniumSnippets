@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://usdfw13tr07/" />
+<title>4.2.1.1-Add_New_Client</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">4.2.1.1-Add_New_Client</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/Home.aspx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>MPF Admin Portal &gt; Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=dnn_ctr389_Login_Login_MPFDefault_txtUsername</td>
+	<td>robert ames</td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>MPF Admin Portal &gt; Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#dnn_dnnNAV_ctldnnNAVctr81 &gt; a &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>MPF Admin Portal &gt; Clients</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_lnkSearch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@name='RadioButton'])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=dnn_ctr391_AddNewClientView_lnkNext</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>MPF Admin Portal &gt; Clients</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=dnn_ctr391_AddNewClientView_GeneralClientDetailsView_tbClientDisplayName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=dnn_ctr391_AddNewClientView_GeneralClientDetailsView_tbClientDisplayName</td>
+	<td>3Dsp20102010</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_GeneralClientDetailsView_ddlHighLevelIndustry</td>
+	<td>label=Energy</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_GeneralClientDetailsView_ddlLeadOffice</td>
+	<td>label=Atlantic City NJ USA</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_GeneralClientDetailsView_ddlHQPrefferedCurrency</td>
+	<td>label=US Dollar (US)</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_ddlGBMType</td>
+	<td>label=GBM</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_rbHQAppointmentYes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_ddlYearOfOriginalAppointment</td>
+	<td>label=2012</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_ddlEstimatedLevelOfCoordination</td>
+	<td>label=Medium (50-250 hours annually)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_tbGBMSOWStartDate</td>
+	<td>21-Aug-2013</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_tbGBMSOWEndDate</td>
+	<td>23-Aug-2013</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=tbAmountTotalCurrent</td>
+	<td>0101010</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_RevenueView_ddCurrencyTotalCurrent</td>
+	<td>label=US Dollar (US)</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=tbAmountMmbToGbm</td>
+	<td>01010101</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_RevenueView_ddCurrencyMmbToGbm</td>
+	<td>label=US Dollar (US)</td>
+</tr>
+<tr>
+	<td>sendKeys</td>
+	<td>id=tbAmountEstimatedAnnual</td>
+	<td>0101010</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_RevenueView_ddCurrencyEstimatedAnnual</td>
+	<td>label=US Dollar (US)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add Code</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_lbtnSearch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=dnn$ctr391$AddNewClientView$OtherDetailsView$gvGbmTimeCodes$ctl08$cbGbmIsSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_lnkAddSelectedGbmTimeCodes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Add Code')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_lbtnSearch2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=dnn$ctr391$AddNewClientView$OtherDetailsView$gvRbmTimeCodes$ctl08$cbRbmIsSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_lnkAddSelectedRbmTimeCodes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_rbOkToUseClientAsExternalReferenceYes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_rbOkToUseLogoOrClientNameInSalesPresentationsYes</td>
+	<td></td>
+</tr>
+<!--save button is next-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=dnn_ctr391_AddNewClientView_lnkNext</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>MPF Admin Portal &gt; Clients</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.ui-datepicker-trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=22</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=22</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=22</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=22</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=22</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptImplementationTasks_ctl05_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptImplementationTasks_ctl01_ddlTaskDuration</td>
+	<td>label=3 Days</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=option[value=&quot;15&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl03_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl04_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl05_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl01_ddlTaskStartDate</td>
+	<td>label=2 Months Before Renewal</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl05_ddlTaskStartDate</td>
+	<td>label=2 Months Before Renewal</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl07_ddlTaskStartDate</td>
+	<td>label=15 Days Before Renewal</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl09_ddlTaskStartDate</td>
+	<td>label=5 Days Before Renewal</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl08_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl09_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl09_ddlTaskDuration</td>
+	<td>label=3 Days</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl09_ddlTaskDuration &gt; option[value=&quot;15&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl12_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl13_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl14_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl10_ddlTaskStartDate</td>
+	<td>label=5 Days After Renewal</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl10_ddlTaskDuration</td>
+	<td>label=3 Days</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl10_ddlTaskDuration &gt; option[value=&quot;15&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl11_ddlTaskStartDate</td>
+	<td>label=5 Days After Renewal</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl10_ddlTaskDuration</td>
+	<td>label=5 Days</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl10_ddlTaskDuration &gt; option[value=&quot;17&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_LinkButton2</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

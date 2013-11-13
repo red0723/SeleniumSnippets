@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.javascriptlint.com/" />
+<title>showcase</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">showcase</td></tr>
+</thead><tbody>
+<!--currently test assumes logged in state and at proper page.-->
+<tr>
+	<td>open</td>
+	<td>http://usdfw13tr07/Clients.aspx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>loadTestData</td>
+	<td>file:///C:/Users/thomas-jackson/Documents/TestData/TestData/country_list.xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>while</td>
+	<td>!testdata.EOF()</td>
+	<td></td>
+</tr>
+<tr>
+	<td>nextTestData</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=dnn_ctr391_AddNewClientView_ddlCountry</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_ddlCountry</td>
+	<td>${country_name}</td>
+</tr>
+<!--<tr>
+	<td>clickAndWait</td>
+	<td>id=dnn_ctr391_AddNewClientView_lnkSearch</td>
+	<td></td>
+</tr> -->
+<tr>
+	<td>pause</td>
+	<td>1500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>endWhile</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>lipsumText</td>
+	<td>1 word</td>
+	<td>one_code</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_tbOneCode</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
+

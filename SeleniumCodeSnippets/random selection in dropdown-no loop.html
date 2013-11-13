@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.javascriptlint.com/" />
+<title>random selection in dropdown</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">random selection in dropdown</td></tr>
+</thead><tbody>
+<!--first step: determine how many selections in a drop down via storeXpathCount command-->
+<!--IMPORTANT:  next step needs a target!-->
+<tr>
+	<td>storeXpathCount</td>
+	<td>xpath= &lt;target inserted here&gt;</td>
+	<td>dropdown_entries</td>
+</tr>
+<!--to prevent the max entry from causing error, stepping down the count by one.-->
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['dropdown_entries'] = ${dropdown_entries} -1</td>
+	<td>dropdown_entries</td>
+</tr>
+<!--Next step is to generate a random number in the select's range-->
+<tr>
+	<td>storeEval</td>
+	<td>javascript{Math.floor(Math.random()*storedVars['dropdown_entries']+1);}</td>
+	<td>random_selection</td>
+</tr>
+<!--And finally, select from it-->
+<!--change the target field as needed-->
+<tr>
+	<td>select</td>
+	<td>&lt;Needs to match the target in the storeXpathCount command above&gt;</td>
+	<td>index=${random_selection}</td>
+</tr>
+</tbody></table>
+</body>
+</html>
+

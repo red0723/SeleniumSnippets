@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://usdfw13tr07/" />
+<title>4.5.1.3-edit client-abstracted</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">4.5.1.3-edit client-abstracted</td></tr>
+</thead><tbody>
+<tr>
+	<td>verifyText</td>
+	<td>css=h1</td>
+	<td>Step 2 - Add Client Data</td>
+</tr>
+<tr>
+	<td>storeRandomClient</td>
+	<td>client_name_raw</td>
+	<td>client_name_raw</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>_${client_name_raw}</td>
+	<td>client_name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_GeneralClientDetailsView_tbClientDisplayName</td>
+	<td>${client_name}</td>
+</tr>
+<tr>
+	<td>loadTestData</td>
+	<td>file:///H:/Test%20Data/objectlist.xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>while</td>
+	<td>!testdata.EOF()</td>
+	<td></td>
+</tr>
+<tr>
+	<td>nextTestData</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=${object_name}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeXpathCount</td>
+	<td>xpath=//*[@id='${object_name}']/*</td>
+	<td>dropdown_entries</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['dropdown_entries'] = ${dropdown_entries} -1</td>
+	<td>dropdown_entries</td>
+</tr>
+<!--Next step is to generate a random number in the select's range-->
+<tr>
+	<td>storeEval</td>
+	<td>javascript{Math.floor(Math.random()*storedVars['dropdown_entries']+1);}</td>
+	<td>random_selection</td>
+</tr>
+<!--And finally, select from it-->
+<!--change the target field as needed-->
+<tr>
+	<td>select</td>
+	<td>id=${object_name}</td>
+	<td>index=${random_selection}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>100</td>
+	<td></td>
+</tr>
+<tr>
+	<td>endWhile</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Populate Date pickers-->
+<!--TODO:  ABSTRACT THE DATE PICKERS-->
+<tr>
+	<td>typeTodayDate</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_tbGBMSOWStartDate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeLastYearDate</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_tbGBMSOWEndDate</td>
+	<td></td>
+</tr>
+<!--/Populate Date pickers-->
+<!--Populate Text Boxes-->
+<!--TODO:  Abstract the text boxes-->
+<tr>
+	<td>lipsumText</td>
+	<td>1 paragraph</td>
+	<td>random_text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_txtHighLevelRelationshipDescription</td>
+	<td>${random_text}</td>
+</tr>
+<!--Populate Text Boxes-->
+<tr>
+	<td>lipsumText</td>
+	<td>1 sentence</td>
+	<td>random_text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_txtGBMTypeComments</td>
+	<td>${random_text}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_txtHQAppointmentComments</td>
+	<td>${random_text}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_txtYearOfOriginalAppointmentComments</td>
+	<td>${random_text}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_txtEstimatedLevelOfCoordinationComments</td>
+	<td>${random_text}</td>
+</tr>
+<!--/Populate Text Boxes-->
+<!--Populate number boxes-->
+<tr>
+	<td>type</td>
+	<td>id=tbAmountTotalCurrent</td>
+	<td>1000000</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>id=tbAmountTotalCurrent</td>
+	<td>\9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tbAmountMmbToGbm</td>
+	<td>1000000</td>
+</tr>
+<tr>
+	<td>keyPress</td>
+	<td>id=tbAmountMmbToGbm</td>
+	<td>\9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tbAmountEstimatedAnnual</td>
+	<td>1000000</td>
+</tr>
+<tr>
+	<td>keyPress</td>
+	<td>id=tbAmountEstimatedAnnual</td>
+	<td>13</td>
+</tr>
+<!--/Populate number boxes-->
+<!--add GBM Time Codes Section-->
+<!--Add GBM/RBM codes-->
+<!--TODO:  debug GBM section-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add Code</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add Code</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_lbtnSearch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_lbtnSearch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cbGbmIsSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_lnkAddSelectedGbmTimeCodes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1500</td>
+	<td></td>
+</tr>
+<!--end GBM Time Codes Section-->
+<!--add RBM Time Codes Section-->
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Add Code')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_lbtnSearch2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cbRbmIsSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_lnkAddSelectedRbmTimeCodes</td>
+	<td></td>
+</tr>
+<!--end RBM Time Codes Section-->
+<!--Radio Buttons-->
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_rbOkToUseClientAsExternalReferenceNo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_rbOkToUseLogoOrClientNameInSalesPresentationsNo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_rbHQAppointmentYes</td>
+	<td></td>
+</tr>
+<!--/Radio Buttons-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=dnn_ctr391_AddNewClientView_NextLinkButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=dnn_ctr391_AddNewClientView_NextLinkButton</td>
+	<td></td>
+</tr>

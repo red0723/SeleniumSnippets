@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://usdfw13tr0" />
+<title>dynamic drop down looper</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">dynamic drop down looper</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://usdfw13tr07/login.aspx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeUser</td>
+	<td>id=dnn_ctr_Login_Login_MPFDefault_txtUsername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typePassword</td>
+	<td>id=dnn_ctr_Login_Login_MPFDefault_txtPassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr_Login_Login_MPFDefault_cmdLogin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://usdfw13tr07/Clients.aspx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=dnn_ctr391_AddNewClientView_ddlCountry</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>1</td>
+	<td>counter</td>
+</tr>
+<tr>
+	<td>storeXpathCount</td>
+	<td>xpath=/html/body/form/div[3]/section/div/div/div/div/div/div/div/section/div/fieldset/ol/li[2]/select/option</td>
+	<td>dropdown_entries</td>
+</tr>
+<tr>
+	<td>while</td>
+	<td>${counter} &lt; ${dropdown_entries}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_ddlCountry</td>
+	<td>index=${counter}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>250</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['counter'] = ${counter} + 1</td>
+	<td>counter</td>
+</tr>
+<tr>
+	<td>endWhile</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeRandomClient</td>
+	<td>id=dnn_ctr391_AddNewClientView_tbAccountName</td>
+	<td>client_name</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
+

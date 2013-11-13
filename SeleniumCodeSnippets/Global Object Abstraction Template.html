@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://usdfw13tr03" />
+<title>Global Object Abstraction Template</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Global Object Abstraction Template</td></tr>
+</thead><tbody>
+<tr>
+	<td>loadTestData</td>
+	<td>${object_type.xml_file}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>while</td>
+	<td>!testdata.EOF()</td>
+	<td>object_type_loop</td>
+</tr>
+<tr>
+	<td>nextTestData</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>loadTestData</td>
+	<td>${object_name_xml}</td>
+	<td>object_specific_loop</td>
+</tr>
+<tr>
+	<td>while</td>
+	<td>!testdata.EOF()</td>
+	<td></td>
+</tr>
+<tr>
+	<td>nextTestData</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=${object_name}</td>
+	<td></td>
+</tr>
+<!--return from label-->
+<tr>
+	<td>endWhile</td>
+	<td>oject_specific_loop</td>
+	<td></td>
+</tr>
+<tr>
+	<td>endWhile</td>
+	<td></td>
+	<td>object_type_loop</td>
+</tr>
+<tr>
+	<td>label</td>
+	<td>dropdown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeXpathCount</td>
+	<td>xpath=//*[@id='${object_name}']/*</td>
+	<td>dropdown_entries</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['dropdown_entries'] = ${dropdown_entries} -1</td>
+	<td>dropdown_entries</td>
+</tr>
+<!--Next step is to generate a random number in the select's range-->
+<tr>
+	<td>storeEval</td>
+	<td>javascript{Math.floor(Math.random()*storedVars['dropdown_entries']+1);}</td>
+	<td>random_selection</td>
+</tr>
+<!--And finally, select from it-->
+<!--change the target field as needed-->
+<tr>
+	<td>storeText</td>
+	<td>id=dnn_ctr391_AddNewClientView_GeneralClientDetailsView_tbClientDisplayName</td>
+	<td>client_name</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=${object_name}</td>
+	<td>index=${random_selection}</td>
+</tr>
+<tr>
+	<td>label</td>
+	<td>radio_button</td>
+	<td></td>
+</tr>
+<!--insrt the click -->
+<tr>
+	<td>click</td>
+	<td>id={object_name}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>label</td>
+	<td>calendar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeRandomDash</td>
+	<td>id=${object_name}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>label</td>
+	<td>numeric box</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeRandomZipCode</td>
+	<td>id=${object_name}</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

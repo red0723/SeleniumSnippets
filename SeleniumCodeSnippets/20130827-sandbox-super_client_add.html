@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://gbmdevapp1.cloudapp.net/" />
+<title>20130827-sandbox-super_client_add</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">20130827-sandbox-super_client_add</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>1</td>
+	<td>counter</td>
+</tr>
+<tr>
+	<td>while</td>
+	<td>${counter} &lt; 31</td>
+	<td>counter_loop</td>
+</tr>
+<!--depends on successful login-->
+<tr>
+	<td>open</td>
+	<td>/clients.aspx</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=dnn_ctr391_AddNewClientView_CountryDropDown</td>
+	<td>label=United States</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_lnkSearch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=RadioButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=RadioButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=dnn_ctr391_AddNewClientView_NextLinkButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h1</td>
+	<td>Step 2 - Add Client Data</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h1</td>
+	<td>Step 2 - Add Client Data</td>
+</tr>
+<tr>
+	<td>storeRandomClient</td>
+	<td>client_name_raw</td>
+	<td>client_name_raw</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>_${client_name_raw}</td>
+	<td>client_name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_GeneralClientDetailsView_tbClientDisplayName</td>
+	<td>${client_name}</td>
+</tr>
+<tr>
+	<td>loadTestData</td>
+	<td>file:///H:/Test%20Data/objectlist.xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>while</td>
+	<td>!testdata.EOF()</td>
+	<td></td>
+</tr>
+<tr>
+	<td>nextTestData</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=${object_name}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeXpathCount</td>
+	<td>xpath=//*[@id='${object_name}']/*</td>
+	<td>dropdown_entries</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['dropdown_entries'] = ${dropdown_entries} -1</td>
+	<td>dropdown_entries</td>
+</tr>
+<!--Next step is to generate a random number in the select's range-->
+<tr>
+	<td>storeEval</td>
+	<td>javascript{Math.floor(Math.random()*storedVars['dropdown_entries']+1);}</td>
+	<td>random_selection</td>
+</tr>
+<!--And finally, select from it-->
+<!--change the target field as needed-->
+<tr>
+	<td>select</td>
+	<td>id=${object_name}</td>
+	<td>index=${random_selection}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>100</td>
+	<td></td>
+</tr>
+<tr>
+	<td>endWhile</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Populate Date pickers-->
+<!--TODO:  ABSTRACT THE DATE PICKERS-->
+<tr>
+	<td>typeTodayDate</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_tbGBMSOWStartDate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeLastYearDate</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_tbGBMSOWEndDate</td>
+	<td></td>
+</tr>
+<!--/Populate Date pickers-->
+<!--Populate Text Boxes-->
+<!--TODO:  Abstract the text boxes-->
+<tr>
+	<td>lipsumText</td>
+	<td>1 paragraph</td>
+	<td>random_text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_txtHighLevelRelationshipDescription</td>
+	<td>${random_text}</td>
+</tr>
+<!--Populate Text Boxes-->
+<tr>
+	<td>lipsumText</td>
+	<td>1 sentence</td>
+	<td>random_text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_txtGBMTypeComments</td>
+	<td>${random_text}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_txtHQAppointmentComments</td>
+	<td>${random_text}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_txtYearOfOriginalAppointmentComments</td>
+	<td>${random_text}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_txtEstimatedLevelOfCoordinationComments</td>
+	<td>${random_text}</td>
+</tr>
+<!--/Populate Text Boxes-->
+<!--Populate number boxes-->
+<tr>
+	<td>type</td>
+	<td>id=tbAmountTotalCurrent</td>
+	<td>1000000</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>id=tbAmountTotalCurrent</td>
+	<td>\9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tbAmountMmbToGbm</td>
+	<td>1000000</td>
+</tr>
+<tr>
+	<td>keyPress</td>
+	<td>id=tbAmountMmbToGbm</td>
+	<td>\9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=tbAmountEstimatedAnnual</td>
+	<td>1000000</td>
+</tr>
+<tr>
+	<td>keyPress</td>
+	<td>id=tbAmountEstimatedAnnual</td>
+	<td>13</td>
+</tr>
+<!--/Populate number boxes-->
+<!--add GBM Time Codes Section-->
+<!--Add GBM/RBM codes-->
+<!--TODO:  debug GBM section-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add Code</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add Code</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_tbClientName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_lbtnSearch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//table[@id='gvGbmTimeCodes']/tbody/tr/th[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//table[@id='gvGbmTimeCodes']/tbody/tr/th[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cbGbmIsSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_lnkAddSelectedGbmTimeCodes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1500</td>
+	<td></td>
+</tr>
+<!--end GBM Time Codes Section-->
+<!--add RBM Time Codes Section-->
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Add Code')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_lbtnSearch2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//table[@id='gvRbmTimeCodes']/tbody/tr/th[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cbRbmIsSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_lnkAddSelectedRbmTimeCodes</td>
+	<td></td>
+</tr>
+<!--end RBM Time Codes Section-->
+<!--Radio Buttons-->
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_rbOkToUseClientAsExternalReferenceNo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_OtherDetailsView_rbOkToUseLogoOrClientNameInSalesPresentationsNo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_rbHQAppointmentYes</td>
+	<td></td>
+</tr>
+<!--/Radio Buttons-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=dnn_ctr391_AddNewClientView_NextLinkButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=dnn_ctr391_AddNewClientView_NextLinkButton</td>
+	<td></td>
+</tr>
+<!--date boxes-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptImplementationTasks_ctl01_tbStartDate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=dnn_ctr391_AddNewClientView_RelationshipDetailsView_tbGBMSOWStartDate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeSixWeeksPast</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptImplementationTasks_ctl01_tbStartDate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeSixWeeksPast</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptImplementationTasks_ctl03_tbStartDate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeSixWeeksPast</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptImplementationTasks_ctl04_tbStartDate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeSixWeeksPast</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptImplementationTasks_ctl05_tbStartDate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeSixWeeksPast</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptImplementationTasks_ctl06_tbStartDate</td>
+	<td></td>
+</tr>
+<!--/end date boxes-->
+<!--checkboxes-->
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptImplementationTasks_ctl05_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl03_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl04_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl05_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl08_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl09_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl12_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl13_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl14_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptImplementationTasks_ctl05_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl04_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl03_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl05_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl08_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl09_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl12_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl13_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_rptRenewalTasks_ctl14_cbIsTaskSelected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_LinkButton2</td>
+	<td></td>
+</tr>
+<!--/checkboxes-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_lnkActivate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=dnn_ctr391_AddNewClientView_DefineClientWorkflowView_lnkActivate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['counter'] = ${counter} + 1</td>
+	<td>counter</td>
+</tr>
+<tr>
+	<td>endWhile</td>
+	<td>counter_loop</td>
+	<td>counter_loop</td>
+</tr>
+</tbody></table>
+</body>
+</html>
